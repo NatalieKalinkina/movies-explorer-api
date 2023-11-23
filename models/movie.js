@@ -1,6 +1,6 @@
-const { isURL } = require('validator');
-
 const mongoose = require('mongoose');
+
+const { MOVIE_SCHEMA_VALIDATE_URL_MESSAGE, URL_REGEXP } = require('../constants');
 
 const movieSchema = new mongoose.Schema({
   country: {
@@ -28,9 +28,9 @@ const movieSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator(v) {
-        return isURL(v);
+        return URL_REGEXP.test(v);
       },
-      message: (props) => `${props.value} is not a valid URL!`,
+      message: (props) => `${props.value} ${MOVIE_SCHEMA_VALIDATE_URL_MESSAGE}`,
     },
   },
   trailerLink: {
@@ -38,9 +38,9 @@ const movieSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator(v) {
-        return isURL(v);
+        return URL_REGEXP.test(v);
       },
-      message: (props) => `${props.value} is not a valid URL!`,
+      message: (props) => `${props.value} ${MOVIE_SCHEMA_VALIDATE_URL_MESSAGE}`,
     },
   },
   thumbnail: {
@@ -48,9 +48,9 @@ const movieSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator(v) {
-        return isURL(v);
+        return URL_REGEXP.test(v);
       },
-      message: (props) => `${props.value} is not a valid URL!`,
+      message: (props) => `${props.value} ${MOVIE_SCHEMA_VALIDATE_URL_MESSAGE}`,
     },
   },
   owner: {

@@ -1,6 +1,7 @@
 const { isEmail } = require('validator');
 
 const mongoose = require('mongoose');
+const { USER_SCHEMA_VALIDATE_EMAIL_MESSAGE } = require('../constants');
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -11,7 +12,7 @@ const userSchema = new mongoose.Schema({
       validator(v) {
         return isEmail(v);
       },
-      message: (props) => `${props.value} is not a valid email!`,
+      message: () => USER_SCHEMA_VALIDATE_EMAIL_MESSAGE,
     },
   },
   password: {

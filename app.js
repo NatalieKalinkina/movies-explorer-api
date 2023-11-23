@@ -12,7 +12,9 @@ const { exceptionHandler } = require('./middlewares/exceptionHandler');
 
 const { rateLimiter } = require('./middlewares/rateLimiter');
 
-const { PORT = 3000, MONGO_URL = 'mongodb://127.0.0.1:27017/bitfilmsdb' } = process.env;
+const { MONGO_URL_DEV, PORT_DEV } = require('./constants');
+
+const { PORT, MONGO_URL, NODE_ENV } = process.env;
 
 const app = express();
 app.use(cors());
@@ -22,7 +24,7 @@ app.use(rateLimiter);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(MONGO_URL).then(() => {
+mongoose.connect(NODE_ENV === 'production' ? MONGO_URL : MONGO_URL_DEV).then(() => {
   console.log('connected to MongoDB');
 });
 
@@ -36,6 +38,4 @@ app.use(errors());
 
 app.use(exceptionHandler);
 
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`);
-});
+app.listen(NODE_ENV === 'production' ? PORT : PORT_DEV);
