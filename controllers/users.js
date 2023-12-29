@@ -46,6 +46,9 @@ module.exports.updateUser = (req, res, next) => {
     }))
     .catch((err) => {
       console.log(err);
+      if (err.code === 11000) {
+        next(new ConflictError(USER_CONFLICT_MESSAGE));
+      }
       if (err instanceof mongoose.Error.ValidationError) {
         next(new BadRequestError(USER_INCORRECT_INFO_MESSAGE));
       } else {
