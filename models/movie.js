@@ -1,6 +1,10 @@
+const { number } = require('joi');
 const mongoose = require('mongoose');
 
-const { MOVIE_SCHEMA_VALIDATE_URL_MESSAGE, URL_REGEXP } = require('../constants');
+const {
+  MOVIE_SCHEMA_VALIDATE_URL_MESSAGE,
+  URL_REGEXP,
+} = require('../constants');
 
 const movieSchema = new mongoose.Schema({
   country: {
@@ -60,7 +64,7 @@ const movieSchema = new mongoose.Schema({
   },
   movieId: {
     type: Number,
-    // required: true,
+    required: true,
   },
   nameRU: {
     type: String,

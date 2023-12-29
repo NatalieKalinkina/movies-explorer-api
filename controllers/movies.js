@@ -66,12 +66,13 @@ module.exports.createMovie = (req, res, next) => {
         nameRU: movie.nameRU,
         nameEN: movie.nameEN,
         thumbnail: movie.thumbnail,
-        movieId: movie.id,
+        movieId: movie.movieId,
         owner: {
           email: req.user.email,
           name: req.user.name,
           _id: req.user._id,
         },
+        _id: movie._id,
       });
     })
     .catch((err) => {
