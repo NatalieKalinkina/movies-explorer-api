@@ -3,7 +3,7 @@
 ***Дипломная работа от Яндекс Практикум***
 
 ## Описание проекта:
-REST API для аутентификации пользователей и сохранения фильмов в избранном для приложения Movies Explorer (фронтенд приложения - [здесь](https://github.com/NatalieKalinkina/movies-explorer-frontend))
+API для аутентификации пользователей и сохранения фильмов в избранном для приложения Movies Explorer (фронтенд приложения - [здесь](https://github.com/NatalieKalinkina/movies-explorer-frontend))
 
 ## Стэк технологий:
 * Node.js
