@@ -8,9 +8,9 @@ const routes = require("./routes/index");
 
 const { requestLogger, errorLogger } = require("./middlewares/logger");
 
-const { exceptionHandler } = require("./middlewares/exceptionHandler");
+// const { exceptionHandler } = require("./middlewares/exceptionHandler");
 
-const { rateLimiter } = require("./middlewares/rateLimiter");
+// const { rateLimiter } = require("./middlewares/rateLimiter");
 
 const { MONGO_URL_DEV, PORT_DEV } = require("./constants");
 
@@ -35,7 +35,7 @@ app.use(function (req, res, next) {
 });
 
 app.use(helmet());
-app.use(rateLimiter);
+// app.use(rateLimiter);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -54,6 +54,6 @@ app.use(errorLogger);
 
 app.use(errors());
 
-app.use(exceptionHandler);
+// app.use(exceptionHandler);
 
 app.listen(NODE_ENV === "production" ? PORT : PORT_DEV);
