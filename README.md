@@ -32,6 +32,6 @@ npm run start  — запускает сервер
 npm run dev — запускает сервер с hot-reload
 ```
 
-  ## 🌏 Ссылки:
-* [Frontend](https://nk.movies.nomoredomainsmonster.ru/)
-* [Backend](https://api.nk.movies.nomoredomainsmonster.ru/)
+  ## 🌏 Деплой:
+* [Frontend](https://movies-explorer-frontend-3syg.onrender.com/)
+* [Backend](https://movies-explorer-api-7rz0.onrender.com)
